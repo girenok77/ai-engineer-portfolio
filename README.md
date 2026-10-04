@@ -31,7 +31,7 @@ UPDATE_TOKEN=replace-with-a-strong-secret
 NAV_TOKEN=optional
 ```
 
-Run `python3 scripts/daily_sync.py`. `--only nav` / `--only sessions` select imports; `--inspect` reports only aggregate local session metadata. NAV refresh scans feed changes from the last 14 days, deduplicates latest ad state, masks inactive records and reapplies preferences. It is not a full all-active archive. Existing older records remain until expiry or an inactive update. The public experimental token is fetched on every run; long-term use should obtain a registered token following [NAV documentation](https://navikt.github.io/pam-stilling-feed/).
+Run `python3 scripts/daily_sync.py`. `--only nav` / `--only sessions` select imports; `--inspect` reports only aggregate local session metadata. NAV refresh reads every page of the public English/IT search, fetches full ad details (public feed with HTML fallback for external listings), and saves even partial relevant matches to the private queue. Older publications and passed deadlines are never exclusion criteria. Seniority, language, clearance and degree gaps are recorded as limitations. Clearly unrelated roles are skipped. Previously saved vacancies remain visible after their deadline. Preparing CV/email drafts is separate from saving, and sending still requires owner approval. The public experimental token is fetched on every run; long-term use should obtain a registered token following [NAV documentation](https://navikt.github.io/pam-stilling-feed/).
 
 ## Codex daily workflow
 
