@@ -1,0 +1,3 @@
+import {owner,privateState,mutate,response} from '@/lib/workspace';
+export async function GET(){if(!await owner())return response({error:'Потрібен вхід власника'},403);try{return response(await privateState());}catch{return response({error:'Сховище недоступне. Спробуй ще раз.'},503);}}
+export async function POST(req:Request){if(!await owner())return response({error:'Потрібен вхід власника'},403);const origin=req.headers.get('Origin');if(origin&&origin!==new URL(req.url).origin)return response({error:'Сторонній запит відхилено'},403);try{return response(await mutate(await req.json()));}catch(e){return response({error:e instanceof Error?e.message:'Помилка збереження'},400);}}
