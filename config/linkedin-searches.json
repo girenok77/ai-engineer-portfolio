@@ -1,0 +1,78 @@
+{
+  "source": "linkedin",
+  "country": "Norway",
+  "workplaceModes": [
+    "remote",
+    "hybrid",
+    "office"
+  ],
+  "dateFilter": null,
+  "seniorityFilter": null,
+  "includeClosed": true,
+  "searches": [
+    {
+      "id": "python",
+      "label": "Python backend",
+      "keywords": "Python developer",
+      "category": "backend",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=Python+developer&location=Norway",
+      "webQuery": "site:linkedin.com/jobs/view Python developer Norway"
+    },
+    {
+      "id": "backend",
+      "label": "Backend / API",
+      "keywords": "backend engineer Python",
+      "category": "backend",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=backend+engineer+Python&location=Norway",
+      "webQuery": "site:linkedin.com/jobs/view backend engineer Python Norway"
+    },
+    {
+      "id": "fullstack",
+      "label": "Python full-stack",
+      "keywords": "full stack Python",
+      "category": "fullstack",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=full+stack+Python&location=Norway",
+      "webQuery": "site:linkedin.com/jobs/view full stack Python Norway"
+    },
+    {
+      "id": "ai",
+      "label": "AI / LLM / agents",
+      "keywords": "AI engineer",
+      "category": "ai",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=AI+engineer&location=Norway",
+      "webQuery": "site:linkedin.com/jobs/view AI engineer Norway"
+    },
+    {
+      "id": "ml",
+      "label": "Machine learning",
+      "keywords": "machine learning engineer",
+      "category": "ai",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=machine+learning+engineer&location=Norway",
+      "webQuery": "site:linkedin.com/jobs/view machine learning engineer Norway"
+    },
+    {
+      "id": "automation",
+      "label": "Автоматизація тестування",
+      "keywords": "test automation Python",
+      "category": "backend",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=test+automation+Python&location=Norway",
+      "webQuery": "site:linkedin.com/jobs/view test automation Python Norway"
+    },
+    {
+      "id": "data",
+      "label": "Дані / SQL / ETL",
+      "keywords": "data engineer Python SQL",
+      "category": "backend",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=data+engineer+Python+SQL&location=Norway",
+      "webQuery": "site:linkedin.com/jobs/view data engineer Python SQL Norway"
+    },
+    {
+      "id": "junior",
+      "label": "Junior / graduate Python",
+      "keywords": "junior Python developer",
+      "category": "backend",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=junior+Python+developer&location=Norway",
+      "webQuery": "site:linkedin.com/jobs/view junior Python developer Norway"
+    }
+  ]
+}

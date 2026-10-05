@@ -57,3 +57,7 @@ A session groups turns of one top-level Codex chat with gaps up to 30 minutes. D
 Run `npx tsc --noEmit` and the Site build. Verify anonymous public API, forbidden private API/CV access, rejection of forged user headers, application save idempotency, valid CV upload, and rejection of approval without a prepared Gmail draft. Build/package and publish through Sites using the existing `.openai/hosting.json` project. Runtime data stays in D1/R2 between versions. The GitHub repository contains source and only the intentionally public main CV.
 
 DOU: both Python experience searches (0–1 and 1–3 years), including the full load-more list. Save explicit abroad/foreign-city listings by default. Remote-only listings require the owner’s preference (`DOU_INCLUDE_REMOTE=true` in ignored local .env); tag them as Norway eligibility unconfirmed. DOU IDs are namespaced and canonical URLs deduplicate search/RSS parameters. Source badges and filters derive from the exact source hostname, for both vacancies and applications. Neither source filters by passed deadlines.
+
+## LinkedIn — Норвегія
+
+`config/linkedin-searches.json` містить 8 напрямів для agent-assisted пошуку; правила й посилання — у `docs/linkedin-searches.md`. Формати remote, hybrid та office включені, географія лише Norway. У кабінеті є джерело LinkedIn та посилання на всі напрями. LinkedIn перевіряється агентом через доступні публічні сторінки / вебпошук; daily_sync.py не містить прихованого LinkedIn crawler і не гарантує повноту індексу.
