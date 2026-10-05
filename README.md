@@ -31,7 +31,7 @@ UPDATE_TOKEN=replace-with-a-strong-secret
 NAV_TOKEN=optional
 ```
 
-Run `python3 scripts/daily_sync.py`. `--only nav` / `--only sessions` select imports; `--inspect` reports only aggregate local session metadata. NAV refresh reads every page of the public English/IT search, fetches full ad details (public feed with HTML fallback for external listings), and saves even partial relevant matches to the private queue. Older publications and passed deadlines are never exclusion criteria. Seniority, language, clearance and degree gaps are recorded as limitations. Clearly unrelated roles are skipped. Previously saved vacancies remain visible after their deadline. Preparing CV/email drafts is separate from saving, and sending still requires owner approval. The public experimental token is fetched on every run; long-term use should obtain a registered token following [NAV documentation](https://navikt.github.io/pam-stilling-feed/).
+Run `python3 scripts/daily_sync.py`. `--only nav` / `--only dou` / `--only sessions` select imports; `--inspect` reports only aggregate local session metadata. NAV refresh reads every page of the public English/IT search, fetches full ad details (public feed with HTML fallback for external listings), and saves even partial relevant matches to the private queue. Older publications and passed deadlines are never exclusion criteria. Seniority, language, clearance and degree gaps are recorded as limitations. Clearly unrelated roles are skipped. Previously saved vacancies remain visible after their deadline. Preparing CV/email drafts is separate from saving, and sending still requires owner approval. The public experimental token is fetched on every run; long-term use should obtain a registered token following [NAV documentation](https://navikt.github.io/pam-stilling-feed/).
 
 ## Codex daily workflow
 
@@ -55,3 +55,5 @@ A session groups turns of one top-level Codex chat with gaps up to 30 minutes. D
 ## Validation and deployment
 
 Run `npx tsc --noEmit` and the Site build. Verify anonymous public API, forbidden private API/CV access, rejection of forged user headers, application save idempotency, valid CV upload, and rejection of approval without a prepared Gmail draft. Build/package and publish through Sites using the existing `.openai/hosting.json` project. Runtime data stays in D1/R2 between versions. The GitHub repository contains source and only the intentionally public main CV.
+
+DOU: both Python experience searches (0–1 and 1–3 years), including the full load-more list. Save explicit abroad/foreign-city listings by default. Remote-only listings require the owner’s preference (`DOU_INCLUDE_REMOTE=true` in ignored local .env); tag them as Norway eligibility unconfirmed. DOU IDs are namespaced and canonical URLs deduplicate search/RSS parameters. Source badges and filters derive from the exact source hostname, for both vacancies and applications. Neither source filters by passed deadlines.

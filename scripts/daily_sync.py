@@ -104,12 +104,15 @@ def upload_cv(cfg,path,application_id=None):
     return api(cfg,{'kind':'cv','cvKind':'adapted' if application_id else 'base','applicationId':application_id,'filename':path.name,'base64':base64.b64encode(path.read_bytes()).decode(),'text':text})
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--only',choices=['nav','sessions','all'],default='all');p.add_argument('--upload-cv');p.add_argument('--application-id');p.add_argument('--inspect',action='store_true');args=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--only',choices=['nav','dou','sessions','all'],default='all');p.add_argument('--upload-cv');p.add_argument('--application-id');p.add_argument('--inspect',action='store_true');args=p.parse_args()
     if args.inspect:
         rows=collect_sessions();print(json.dumps({'sessions':len(rows),'days':len(set(s['day'] for s in rows)),'tokens':sum(s['totalTokens'] or 0 for s in rows)}));return
     cfg=config();results={}
     if args.upload_cv:results['cv']=upload_cv(cfg,args.upload_cv,args.application_id)
     if args.only in ('nav','all'):results['nav']=nav_sync(cfg,api(cfg)['preferences'])
+    if args.only in ('dou','all'):
+        from dou_sync import sync
+        results['dou']=sync(cfg)
     if args.only in ('sessions','all'):results['codex']=sessions_sync(cfg)
     print(json.dumps(results,ensure_ascii=False))
 if __name__=='__main__':
